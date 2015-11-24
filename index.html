@@ -73,55 +73,55 @@
 </div>
 
  <script>
-        // 菜单定时器
-            var timeId=null;
-            var oIco=document.getElementById("icoBox");
-            var oImg=document.getElementById("bgImg");
-            var oBox=document.getElementsByClassName("ulBox");
-            oImg.onclick=function(){
-                if (oIco.style.display=="block") {
-                    oIco.style.display="none";
-                    console.log("none");
-                }else{
-                    oIco.style.display="block";
-                    console.log("block");
-                };
+        // // 菜单定时器
+        //     var timeId=null;
+        //     var oIco=document.getElementById("icoBox");
+        //     var oImg=document.getElementById("bgImg");
+        //     var oBox=document.getElementsByClassName("ulBox");
+        //     oImg.onclick=function(){
+        //         if (oIco.style.display=="block") {
+        //             oIco.style.display="none";
+        //             console.log("none");
+        //         }else{
+        //             oIco.style.display="block";
+        //             console.log("block");
+        //         };
 
-            };
-            // 清除计时器
-            // note:定时器设置和清除只能在一个元素上设置，不能用另外的元素设置清除条件
-            oIco.onmouseover=function(){
-                console.log("mouseover");
-                clearTimeout(timeId);
-            }
-            oIco.onmouseout=function(){
-                timeId=setTimeout(function(){
-                    oIco.style.display="none";
-                },1000);
+        //     };
+        //     // 清除计时器
+        //     // note:定时器设置和清除只能在一个元素上设置，不能用另外的元素设置清除条件
+        //     oIco.onmouseover=function(){
+        //         console.log("mouseover");
+        //         clearTimeout(timeId);
+        //     }
+        //     oIco.onmouseout=function(){
+        //         timeId=setTimeout(function(){
+        //             oIco.style.display="none";
+        //         },1000);
                 
-                console.log("mouseout");
-            }
-            oImg.onmouseout=function(){
-                timeId=setTimeout(function(){
-                    oIco.style.display="none";
-                },1000);
+        //         console.log("mouseout");
+        //     }
+        //     oImg.onmouseout=function(){
+        //         timeId=setTimeout(function(){
+        //             oIco.style.display="none";
+        //         },1000);
                 
-                console.log("mouseout");
-            }
+        //         console.log("mouseout");
+        //     }
 
-            // menu点击事件
-            var oWechat=document.getElementById("wechat");
-            var oWeibo=document.getElementById("weibo");
-            var oGithub=document.getElementById("github");
-            oWechat.onclick=function(){
-                alert("并没有");
-            };
-            oWeibo.onclick=function(){
-                alert("并没有");
-            };
-            oGithub.onclick=function(){
-                window.open("https://github.com/yrok");
-            }
+        //     // menu点击事件
+        //     var oWechat=document.getElementById("wechat");
+        //     var oWeibo=document.getElementById("weibo");
+        //     var oGithub=document.getElementById("github");
+        //     oWechat.onclick=function(){
+        //         alert("并没有");
+        //     };
+        //     oWeibo.onclick=function(){
+        //         alert("并没有");
+        //     };
+        //     oGithub.onclick=function(){
+        //         window.open("https://github.com/yrok");
+        //     }
         window.onload=function(){
             // 下方逐字文字效果
             var oMaintxt=document.getElementById("mainTxt").innerHTML;
