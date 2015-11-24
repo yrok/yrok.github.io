@@ -1,0 +1,144 @@
+ /*css reset*/
+div,h1,li,ul,ol,span,a,img{margin:0;padding: 0;}
+a{text-decoration:none;color:#2bcbf8;}
+ul,li{list-style: none;}
+body{
+    background-color: #031b39;
+}
+#mainTxt{display: none;}
+/*右上角菜单*/
+/*ul外围div*/
+.ulBox{
+    margin-top: 0;
+    position: relative;
+}
+/*最外围ul，设置指针样式*/
+#mainMenu{
+    float: right;
+    top:0;
+    min-width: 46px;
+    min-height: 46px;
+    cursor: pointer;
+}
+
+#imgBox{
+    width: 46px;
+    height: 46px;
+ }
+ /*头像边框*/
+ #imgBox img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border:3px solid transparent;
+ }
+ /*头像鼠标mouseover事件触发样式*/
+#imgBox img:hover{
+    border-color: #2bcbf8;
+}
+/*设置小图标样式*/
+#icoBox{
+    width: 46px;
+    height: 120px;
+    padding: 0;
+    position: absolute;
+    display: none;
+}
+
+#orderMenu{
+    padding: 3px;
+}
+#orderMenu li{
+    width: 40px;
+    height: 40px;
+    margin-left: 3px;
+}
+#orderMenu li a{
+    width: 30px;
+    height: 30px;
+}
+/*设置小图标*/
+#wechat{
+    background: url(/yrok.github.io/img/icon.png) no-repeat 0 0;
+}
+#weibo{
+
+    background: url(/yrok.github.io/img/icon.png) no-repeat 0 -40px;
+}
+#github{
+    margin-top: 5px;
+    background: url(/yrok.github.io/img/icon.png) no-repeat 0 -80px;
+}
+/*清除浮动*/
+.clearfix:after{
+    content:".";
+    display:block;
+    clear:both;
+    height:0;
+    overflow:hidden;
+    visibility:hidden;
+}
+
+/*居中*/
+h1,p{text-align: center;}
+
+/*设置yrok*/
+h1{
+    margin-top: 80px;
+    font: bolder 4em 黑体;
+    color:#2bcbf8;
+    cursor: default;
+}
+h1:hover{
+
+}
+#underTxt{
+    margin-top: 10px;
+    font-size: 1em;
+    color:#018ab0;
+}
+hr{
+    background-color: #2bcbf8;
+    width: 40em;
+}
+/*对outputtxt进行居中*/
+#outPut{
+    text-align: center;
+}
+
+#outputTxt{
+    margin-top: 15px;
+    padding: 10px;
+    border:1px solid white;
+    display: inline-block;
+    border-radius:5px;
+    font-size: 20px;
+    color: #2bcbf8;
+}
+
+/*格子*/
+/*动作之后，display:flex;*/
+#gridBox{
+    margin-top: 25px;
+    
+    display: none;
+    flex-flow:row nowrap;
+    Justify-content:center;
+
+}
+.gd{
+    margin: 0 20px;
+    border:1px solid white;
+    border-radius: 5px;
+    
+    padding: 10px;
+    font-size: 15px;
+    color: #2bcbf8;
+}
+.gd:hover{
+    border-color: #018ab0;
+}
+a:hover{
+    text-decoration:underline;
+    color: blue;
+}

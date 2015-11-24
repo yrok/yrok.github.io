@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YROK's Page</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div>
+    <div class="ulBox">
+        <ul id="mainMenu">
+            <li id="imgBox"><img id="bgImg" title="click to contack me" src="/gh-pages/img/portrait.png" alt="portrait"></li>
+            <li id="icoBox">
+                <ul id="orderMenu">
+                    <li id="wechat"></li>
+                    <li id="weibo"></li>
+                    <li id="github"></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="clearfix"></div>
+    
+    <h1>YROK</h1>
+    <p id="underTxt">Cease to Struggle and You Cease to Live</p>
+    <hr>
+    
+    <!-- 输出区 -->
+    <div id="outPut"><div id="outputTxt"></div></div>
+
+    
+    <!-- 主要内容区 -->
+    <div id="mainTxt">
+        3...<br>
+        2...<br>
+        1...<br>
+        Hi,大家好！<br>
+        我的Github ID：yrok<br>
+        我毕业于辽宁工业大学化工专业<br>
+        学习前端不到半年时间<br>
+        我的这个page现在没有什么项目能展示，但是我相信以后会充实起来的!
+    </div>
+    
+    <div id="gridBox">
+        <div class="gd">
+            <p>已经完成的项目</p>
+            <ol>
+                <li><a href="https://github.com/yrok/js-projects/tree/master/101-clickable-grid">101-clickable-grid</a></li>
+            </ol>
+        </div>
+        
+        <div class="gd">
+            <p>正在进行的项目</p>
+            <ol>
+                <li><a href="/yrok.github.io/list.html">102-github-pages</a></li>
+                <li>103-signup-pages</li>
+            </ol>
+        </div>
+        
+        <div class="gd">
+            <p>正在学习的内容</p>
+            <ol>
+                <li>Jquery</li>
+                <li>backbone</li>
+                <li>bootsrap</li>
+                <li>node.js</li>
+                <li>git</li>
+            </ol>
+        </div>
+
+    </div>
+</div>
+
+ <script>
+        // 菜单定时器
+            var timeId=null;
+            var oIco=document.getElementById("icoBox");
+            var oImg=document.getElementById("bgImg");
+            var oBox=document.getElementsByClassName("ulBox");
+            oImg.onclick=function(){
+                if (oIco.style.display=="block") {
+                    oIco.style.display="none";
+                    console.log("none");
+                }else{
+                    oIco.style.display="block";
+                    console.log("block");
+                };
+
+            };
+            // 清除计时器
+            // note:定时器设置和清除只能在一个元素上设置，不能用另外的元素设置清除条件
+            oIco.onmouseover=function(){
+                console.log("mouseover");
+                clearTimeout(timeId);
+            }
+            oIco.onmouseout=function(){
+                timeId=setTimeout(function(){
+                    oIco.style.display="none";
+                },1000);
+                
+                console.log("mouseout");
+            }
+            oImg.onmouseout=function(){
+                timeId=setTimeout(function(){
+                    oIco.style.display="none";
+                },1000);
+                
+                console.log("mouseout");
+            }
+
+            // menu点击事件
+            var oWechat=document.getElementById("wechat");
+            var oWeibo=document.getElementById("weibo");
+            var oGithub=document.getElementById("github");
+            oWechat.onclick=function(){
+                alert("并没有");
+            };
+            oWeibo.onclick=function(){
+                alert("并没有");
+            };
+            oGithub.onclick=function(){
+                window.open("https://github.com/yrok");
+            }
+        window.onload=function(){
+            // 下方逐字文字效果
+            var oMaintxt=document.getElementById("mainTxt").innerHTML;
+            var reg='<br>';
+            var aParasplit=oMaintxt.split(reg);
+            var len=aParasplit.length;
+            var oOutp=document.getElementById("outputTxt").innerHTML;
+            var aPara=[];
+            // 读取的代码转换格式,这里貌似没用上，原来的文本涉及到个别字符，备用
+            function escapeHTML(htmlStr){
+                var html=htmlStr.replace(/[<>"&]/g,function(m0){
+                    switch(m0){
+                        case '<':
+                            return '&lt;';
+                        case '>':
+                            return '&gt;';
+                        case '&':
+                            return '&amp;';
+                        case '"':
+                            return '&quot;';
+                    }
+               
+                });
+                 return html;
+            }
+            // 分割获取的innerhtml，然后根据片段数组分割，跟br组合，最后合并大数组
+            var content=[];
+                function Finaltxt(){
+                    for (var i = 0; i < len; i++) {
+                        var lenPara=aParasplit[i].length;
+                        aPara[i]=escapeHTML(aParasplit[i]);
+                        for (var j = 0; j <lenPara; j++) {
+                            aTxt=aPara[i].split("");
+                            content.push(aTxt[j]);
+                        };
+                        content.push('<br>');
+                    };
+                        return content;
+                        
+                }
+           // 定义最终取得的数组，以及输出单个文字的函数    
+           var arr=Finaltxt();
+
+           // 延时控制函数
+           
+           // 开启和终止条件
+          var num=0;
+          var max=arr.length;
+          var intervalId=null;
+          
+
+          function time(){
+                document.getElementById("outputTxt").innerHTML=document.getElementById("outputTxt").innerHTML+arr[num];
+                num++;
+            //监视执行次数。
+            //  console.log(num);
+                if (num==max){
+                  clearInterval(intervalId);
+                  document.getElementById("outPut").style.display="none";
+                  document.getElementById("gridBox").style.display="flex";
+                 };
+          }
+          intervalId=setInterval(time,50);
+
+          // 翻转动画
+          
+        };
+</script>    
+
+</body>
+</html>
